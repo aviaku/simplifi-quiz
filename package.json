@@ -5,6 +5,7 @@
   "author": "Diego Netto <diegormnetto@gmail.com>",
   "dependencies": {
     "sqlite3": "*",
-    "buffered-reader": "*"
+    "buffered-reader": "*",
+    "underscore": "*"
   }
 }
