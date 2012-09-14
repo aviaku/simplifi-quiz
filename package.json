@@ -4,6 +4,7 @@
   "private": true,
   "author": "Diego Netto <diegormnetto@gmail.com>",
   "dependencies": {
-    "sqlite3": "*"
+    "sqlite3": "*",
+    "buffered-reader": "*"
   }
 }
