@@ -1,0 +1,9 @@
+{
+  "name": "simplifi-challenge",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Diego Netto <diegormnetto@gmail.com>",
+  "dependencies": {
+    "sqlite3": "*"
+  }
+}
