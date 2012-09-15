@@ -17,10 +17,8 @@ var DATASTORE = path.resolve(__dirname, '../db/datastore.sqlite');
 var UID = process.argv[2];
 
 /**
- * Start the timer and attempt to open a connection to the SQLite datastore.
- * If successful, run the query.
+ * Attempt to open a connection to the SQLite datastore and run the query.
  */
-console.time(LOG_TAG + 'completed in');
 var db = new sqlite3.Database(DATASTORE, sqlite3.OPEN_READONLY, function (err) {
   if (err) throw err;
   console.log(LOG_TAG + 'successfully opened ' + DATASTORE);
@@ -52,9 +50,8 @@ function run() {
 }
 
 /**
- * Close the database connection and end timer.
+ * Close the database connection.
  */
 function finish() {
   db.close();
-  console.timeEnd(LOG_TAG + 'completed in');
 }
