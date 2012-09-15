@@ -34,6 +34,7 @@ var db = new sqlite3.Database('datastore', function (err) {
   console.log(LOG_TAG + 'successfully created new SQLite datastore');
 });
 db.run("CREATE TABLE users (ip TEXT, agent TEXT, url TEXT, ref TEXT)", function(db) {
+  console.log(LOG_TAG + 'created users table');
   parser.parse(DATA_FILE);
 });
  
