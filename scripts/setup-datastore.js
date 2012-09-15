@@ -7,15 +7,16 @@
  * Dependencies.
  */
 var fs = require('fs');
+var path = require('path');
 var sqlite3 = require('sqlite3').verbose();
-var parser = require('./lib/user-data-parser');
+var parser = require(path.resolve(__dirname, '../lib/user-data-parser'));
 var _ = require('underscore');
 
 /**
  * Variables.
  */
 var LOG_TAG = 'Setup: ';
-var DATA_FILE = 'parsed_data.txt';
+var DATA_FILE = path.resolve(__dirname, '../parsed_data.txt');
 var DATASTORE = path.resolve(__dirname, '../db/datastore.sqlite');
 
 /**
