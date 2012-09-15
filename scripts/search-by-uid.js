@@ -13,7 +13,7 @@ var path = require('path');
  * Variables.
  */
 var LOG_TAG = 'UID Search: ';
-var DATASTORE = path.resolve('./db/datastore.sqlite');
+var DATASTORE = path.resolve(__dirname, '../db/datastore.sqlite');
 var UID = process.argv[2];
 
 /**

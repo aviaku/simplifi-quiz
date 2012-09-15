@@ -16,7 +16,7 @@ var _ = require('underscore');
  */
 var LOG_TAG = 'Setup: ';
 var DATA_FILE = 'parsed_data.txt';
-var DATASTORE = path.resolve('./db/datastore.sqlite');
+var DATASTORE = path.resolve(__dirname, '../db/datastore.sqlite');
 
 /**
  * Delete the old datastore if it exists.
