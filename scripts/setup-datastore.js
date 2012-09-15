@@ -16,22 +16,23 @@ var _ = require('underscore');
  */
 var LOG_TAG = 'Setup: ';
 var DATA_FILE = 'parsed_data.txt';
+var DATASTORE = path.resolve('./db/datastore.sqlite');
 
 /**
  * Delete the old datastore if it exists.
  */
-fs.unlink('datastore', function (err) {
-  if (err) throw err;
-  console.log(LOG_TAG + 'successfully deleted old datastore');
+fs.unlink(DATASTORE, function (err) {
+  if(err) throw err;
+  console.log(LOG_TAG + 'successfully deleted old ' + DATASTORE);
 });
 
 /**
  * Attempt to create a new datastore and invoke the user data
  * parsing library once the 'users' table has been created.
  */
-var db = new sqlite3.Database('datastore', function (err) {
-  if (err) throw err;
-  console.log(LOG_TAG + 'successfully created new SQLite datastore');
+var db = new sqlite3.Database(DATASTORE, function (err) {
+  if(err) throw err;
+  console.log(LOG_TAG + 'successfully created new ' + DATASTORE);
 });
 db.run("CREATE TABLE users (ip TEXT, agent TEXT, url TEXT, ref TEXT)", function(db) {
   console.log(LOG_TAG + 'created users table');

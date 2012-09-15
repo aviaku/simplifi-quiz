@@ -7,12 +7,13 @@
  * Dependencies.
  */
 var sqlite3 = require('sqlite3').verbose();
+var path = require('path');
 
 /**
  * Variables.
  */
 var LOG_TAG = 'UID Search: ';
-var DATASTORE = 'datastore';
+var DATASTORE = path.resolve('./db/datastore.sqlite');
 var UID = process.argv[2];
 
 /**
