@@ -1,3 +1,31 @@
+# Parsing
+
+In an attempt to reduce the amount of data being written to the datastore, the following decisions were made while parsing each user record:
+
+## IP Address
+- Kept as is, if present
+
+## User Agent
+- TODO: Optimize
+
+## URL and Referer 
+
+### Host
+- Strip protocol
+- Split at "."s
+- Remove "www"
+- Remove common domain extensions
+
+### Pathname
+- Ignore empty paths "/"
+- Remove "/", "=", "-", "_", and ";"
+- Remove common domain extensions
+- Remove common file extensions
+- Ignore keyword if length < 3 (decision made after analyzing usefulness of[this file](https://github.com/diegonetto/simplifi-quiz/blob/master/keywords-under-three-characters.txt)'s contents)
+
+### Query
+- TODO: Optimize
+
 # Benchmarks
 
 ### Naive Parser Implementation - 68a2b30ad8436001787f793cf29300fe0e50c343
