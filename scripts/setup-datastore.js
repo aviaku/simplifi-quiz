@@ -35,7 +35,7 @@ var db = new sqlite3.Database(DATASTORE, function (err) {
   if(err) throw err;
   console.log(LOG_TAG + 'successfully created new ' + DATASTORE);
 });
-db.run("CREATE TABLE users (ip TEXT, agent TEXT, url TEXT, ref TEXT)", function(db) {
+db.run("CREATE TABLE users (ip TEXT, agent TEXT, keywords TEXT)", function(db) {
   console.log(LOG_TAG + 'created users table');
   parser.parse(DATA_FILE);
 });
@@ -49,15 +49,13 @@ parser.emitter.on('ready', function(data) {
   _.defaults(data, { 
     'ip': 	'unknown', 
     'agent':	'unknown', 
-    'url': 	'unknown', 
-    'ref': 	'unknown' 
+    'keywords':	'unknown' 
   });
 
-  db.run('INSERT INTO users VALUES ($ip, $agent, $url, $ref)', {
+  db.run('INSERT INTO users VALUES ($ip, $agent, $keywords)', {
     $ip: 	data.ip,
     $agent: 	data.agent,
-    $url: 	data.url,
-    $ref: 	data.ref
+    $keywords: 	data.keywords
   });
 });
 
