@@ -1,6 +1,6 @@
 # Parsing
 
-In an attempt to reduce the amount of data being written to the datastore, the following decisions were made while parsing each user record:
+In an attempt to reduce the amount of data being written to the datastore, the following parsing decisions were made:
 
 ## IP Address
 - Kept as is, if present
@@ -9,6 +9,7 @@ In an attempt to reduce the amount of data being written to the datastore, the f
 - TODO: Optimize
 
 ## URL and Referer 
+Split into three segments:
 
 ### Host
 - Strip protocol
