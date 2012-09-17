@@ -7,11 +7,10 @@ This repository contains a pre-generated SQLite datastore based on the parsed_da
     $ node scripts/search-by-uid.js UID
 
 # Parsing
-
 In an attempt to reduce the amount of data being written to the datastore, the following parsing decisions were made.
 
-## IP Address
-- Kept as is, if present
+## IP Address and User Agent
+Kept as is, if present
 
 ## URL and Referer 
 Split into three segments.
@@ -48,7 +47,7 @@ Since optimizations were to be made for seach efficiency, an SQLite [FTS4](http:
     sys  	2m22.569s
 
 ### Datastore size
-    ls -lh db/datastore.sqlite 
+    $ ls -lh db/datastore.sqlite 
     -rw-r--r-- 1 diego diego 37M Sep 17 10:33 db/datastore.sqlite
 
 ### Searching by keyword
