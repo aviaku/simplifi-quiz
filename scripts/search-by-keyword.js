@@ -34,7 +34,7 @@ var db = new sqlite3.Database(DATASTORE, sqlite3.OPEN_READONLY, function (err) {
 function run() {
   if( KEYWORD ) {
     console.log(LOG_TAG + 'searching for UIDs that are related to keyword = ' + KEYWORD);
-    var query = "SELECT rowid FROM users WHERE url LIKE '%" + KEYWORD + "%' OR ref LIKE '%" + KEYWORD + "%'"
+    var query = "SELECT rowid FROM users WHERE keywords MATCH '" + KEYWORD + "'";
     db.each(query, function(err, row) {
       if (err) throw err;
 

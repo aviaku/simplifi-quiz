@@ -35,7 +35,7 @@ var db = new sqlite3.Database(DATASTORE, function (err) {
   if(err) throw err;
   console.log(LOG_TAG + 'successfully created new ' + DATASTORE);
 });
-db.run("CREATE TABLE users (ip TEXT, agent TEXT, keywords TEXT)", function(db) {
+db.run("CREATE VIRTUAL TABLE users USING fts4(ip TEXT, agent TEXT, keywords TEXT)", function(db) {
   console.log(LOG_TAG + 'created users table');
   parser.parse(DATA_FILE);
 });
