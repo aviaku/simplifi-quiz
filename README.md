@@ -10,26 +10,26 @@
 ## Parsing
 In an attempt to reduce the amount of data being written to the datastore, the following parsing decisions were made.
 
-## IP Address and User Agent
+### IP Address and User Agent
 Kept as is, if present
 
-## URL and Referer 
+### URL and Referer 
 Split into three segments.
 
-### Host
+#### Host
 - Strip protocol
 - Split at "."s
 - Remove "www"
 - Remove common domain extensions
 
-### Pathname
+#### Pathname
 - Ignore empty paths "/"
 - Remove "/", "=", "-", "_", "&", "|", "," and ";"
 - Remove common domain extensions
 - Remove common file extensions
 - Ignore keyword if length < 3 (decision made after analyzing usefulness of [this file](https://github.com/diegonetto/simplifi-quiz/blob/master/keywords-under-three-characters.txt)'s contents)
 
-### Query
+#### Query
 - Parse params from query
 - Use values of "q", "query", "refer", "referer", "referrer", and "search_query" keys
 
